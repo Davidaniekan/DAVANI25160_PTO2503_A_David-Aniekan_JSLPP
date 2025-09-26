@@ -115,3 +115,87 @@ export function editTask(id, updates) {
     renderTasks(tasks);
   }
 }
+
+/**
+ * Delete a task by ID.
+ * @param {number} id
+ */
+export function deleteTask(id) {
+  const updatedTasks = tasks.filter((t) => t.id !== id);
+  saveTasks(updatedTasks); // mutates exported tasks array to the filtered list
+  renderTasks(updatedTasks);
+}
+
+/**
+ * Wire up form submit (edit/save) and delete confirm handlers.
+ * This function attaches listeners once.
+ */
+export function initModalHandlers() {
+  // Edit existing task save
+  if (editTaskForm) {
+    editTaskForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!editTaskForm.checkValidity()) {
+        editTaskForm.reportValidity(); // show browser validation
+        return;
+      }
+      if (!currentTaskId) return;
+
+      const task = tasks.find((t) => t.id === currentTaskId);
+      if (task) {
+        task.title = (taskTitleInput.value || "").trim();
+        task.description = (taskDescriptionInput.value || "").trim();
+        task.status = taskStatusSelect.value;
+        task.priority = normalizePriority(taskPrioritySelect.value);
+
+        // reorder and persist
+        sortAndPersist();
+
+        renderTasks(tasks);
+        closeModal();
+      }
+    });
+  }
+
+  // Delete flow: show confirmation modal
+  if (deleteBtn) {
+    deleteBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (!currentTaskId) return;
+
+      if (confirmModal) confirmModal.style.display = "flex";
+    });
+  }
+
+  // Confirm yes -> delete
+  if (confirmYes) {
+    confirmYes.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (!currentTaskId) return;
+
+      const updated = tasks.filter((t) => t.id !== currentTaskId);
+      saveTasks(updated);
+      sortAndPersist(); // will persist sorted copy
+      renderTasks(updated);
+
+      if (confirmModal) confirmModal.style.display = "none";
+      closeModal(); // close edit modal too after delete
+    });
+  }
+
+  // Cancel deletion
+  if (confirmNo) {
+    confirmNo.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (confirmModal) confirmModal.style.display = "none"; // hide confirm, keep edit modal open
+    });
+  }
+
+  // Close modal buttons and backdrop click
+  if (closeModalBtn) closeModalBtn.addEventListener("click", closeModal);
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener("click", (e) => {
+      if (e.target === modalBackdrop) closeModal();
+    });
+  }
+}
