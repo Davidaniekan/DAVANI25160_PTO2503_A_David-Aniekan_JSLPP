@@ -76,3 +76,42 @@ export function closeModal() {
   document.body.style.overflow = ""; // Restore scroll
   currentTaskId = null;
 }
+
+/**
+ * Create a new task programmatically .
+ * @param {string} title
+ * @param {string} description
+ * @param {string} status
+ * @param {string} priority
+ */
+export function createTask(title, description, status, priority) {
+  const newTask = {
+    id: allocateNextTaskId(),
+    title: (title || "").trim(),
+    description: (description || "").trim(),
+    status: status || "todo",
+    priority: normalizePriority(priority),
+  };
+
+  tasks.push(newTask);
+  sortAndPersist();
+  renderTasks(tasks);
+}
+
+/**
+ * Edit an existing task by ID.
+ * @param {number} id
+ * @param {Partial<import("./storage").Task>} updates
+ */
+export function editTask(id, updates) {
+  const index = tasks.findIndex((t) => t.id === id);
+  if (index !== -1) {
+    tasks[index] = {
+      ...tasks[index],
+      ...updates,
+      priority: normalizePriority(updates.priority || tasks[index].priority),
+    };
+    sortAndPersist();
+    renderTasks(tasks);
+  }
+}
