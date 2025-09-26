@@ -15,3 +15,71 @@ body {
   padding: 0;
   height: 100%;
 }
+
+/* ========================
+   Dark Theme Styles
+======================== */
+body.dark-theme {
+  background-color: #000112;
+  color: #ffffff;
+}
+
+body.dark-theme .sidebar {
+  background-color: #2b2c37;
+}
+
+body.dark-theme .launch-sidebar {
+  background: #20212c;
+}
+
+body.dark-theme .logo-dark-icon {
+  display: flex;
+}
+
+body.dark-theme .logo-light-icon {
+  display: none;
+}
+
+body.dark-theme .board-btn,
+body.dark-theme .hide-sidebar-btn,
+body.dark-theme .eye-btn,
+body.dark-theme .new-task-btn,
+body.dark-theme .plus-btn,
+body.dark-theme .taskCard {
+  color: #ffffff;
+}
+
+body.dark-theme .modal,
+body.dark-theme .modal-content {
+  background: #2b2c37;
+}
+
+body.dark-theme header {
+  background-color: #2b2c37;
+  color: #ffffff;
+}
+
+body.dark-theme .taskCard {
+  background-color: #2b2c37;
+  box-shadow: 0px 4px 6px 0px #364e7e1a;
+}
+
+body.dark-theme .toggle-container,
+body.dark-theme .hide-sidebar-btn,
+body.dark-theme .eye-btn {
+  background: #635fc7;
+}
+
+body.dark-theme .hide-sidebar-btn:hover,
+body.dark-theme .eye-btn:hover {
+  background-color: #514bb0;
+}
+
+body.dark-theme .hide-sidebar-btn:active,
+body.dark-theme .eye-btn:active {
+  background-color: #403a97;
+}
+
+body.dark-theme .mobile-nav-modal {
+  background-color: #2b2c37;
+}
