@@ -115,3 +115,12 @@ document.addEventListener("open-task", (e) => {
   }
 });
 
+// init theme, mobile nav and boot board
+document.addEventListener("DOMContentLoaded", () => {
+  initThemeToggle();
+  initMobileNav();
+  initSidebar();
+
+  // initialize the board
+  initTaskBoard();
+});
