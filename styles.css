@@ -83,3 +83,98 @@ body.dark-theme .eye-btn:active {
 body.dark-theme .mobile-nav-modal {
   background-color: #2b2c37;
 }
+
+/* ========================
+   Layout container 
+======================== */
+.container {
+  display: flex;
+  min-height: 100%;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  width: 18.75rem;
+  min-width: 13.75rem;
+  border-right: 1px solid #e4ebfa;
+}
+
+.navigation-section {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.launch-sidebar {
+  background-color: #f4f7fd;
+  width: 100%;
+  flex-grow: 1;
+}
+
+/* ======================== 
+   Sidebar logo and boards 
+======================== */
+.logo {
+  padding: 1.875rem 0 0 1.875rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo-light-icon {
+  width: 75%;
+  cursor: pointer;
+}
+
+.logo-dark-icon {
+  display: none;
+  width: 75%;
+  cursor: pointer;
+  margin-bottom: 6px; /* Keeps element positioned consistently with the default theme */
+}
+
+.logo-mobile {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.dark-logo-mobile {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.board h4 {
+  margin-bottom: 5px;
+  padding-left: 2rem;
+}
+
+h4 {
+  color: #828fa3;
+  font-weight: bold;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  letter-spacing: 0.15rem;
+}
+
+.board-btn {
+  display: block;
+  background-color: #635fc7;
+  line-height: 100%;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  width: 90%;
+  height: 3rem;
+  border-bottom-right-radius: 6.25rem;
+  border-top-right-radius: 6.25rem;
+  border: none;
+  cursor: pointer;
+}
