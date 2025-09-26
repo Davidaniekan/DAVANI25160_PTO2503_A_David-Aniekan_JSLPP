@@ -314,3 +314,207 @@ h4 {
 .plus-btn:hover {
   background-color: #514bb0;
 }
+
+/* ========================
+   Header and board list 
+======================== */
+header {
+  background-color: #ffffff;
+  color: #000112;
+  padding: 2.125rem 1.25rem 1.25rem 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.4375rem;
+  border-bottom: 1px solid #e4ebfa;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-task-btn {
+  background-color: #635fc7;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 100%;
+  border: none;
+  cursor: pointer;
+  border-radius: 1.25rem;
+  padding: 10px 12px;
+}
+
+.plus-btn {
+  display: none;
+  background-color: #635fc7;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.board-list {
+  display: flex;
+  gap: 0.9375rem;
+}
+
+/* ========================
+  Columns section 
+======================== */
+.columns {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 340px));
+  gap: 1.5625rem;
+  width: 100%;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.column h4 {
+  display: flex;
+  margin-bottom: 0.9375rem;
+  gap: 10px;
+}
+
+.dot {
+  height: 0.9375rem;
+  width: 0.9375rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.indigo {
+  background-color: #49c4e5;
+}
+
+.purple {
+  background-color: #8471f2;
+}
+
+.green {
+  background-color: #67e2ae;
+}
+
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.taskCard {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 12px;
+  background-color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin-bottom: 16px;
+  width: 100%;
+  height: 3.75rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px 0px #364e7e1a;
+  padding-left: 0.9375rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  overflow: hidden;
+}
+
+.taskCard .task-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.taskCard:hover {
+  transform: scale(1.02);
+}
+
+/* ========================
+   Mobile Navigation Modal
+======================== */
+
+.mobile-board {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.mobile-board h4 {
+  position: relative;
+  left: 65px;
+  margin-top: 10px;
+}
+
+.mobile-board .toggle-slide {
+  position: relative;
+  left: 20px;
+}
+
+/* Navigation Backdrop */
+.mobile-nav-backdrop {
+  display: none;
+  position: fixed;
+  top: 4.375rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.mobile-nav-modal {
+  position: fixed;
+  background: #ffffff;
+  top: 4.4688rem;
+  left: 17px;
+  border-radius: 8px;
+  width: 21.25rem;
+  height: 12.5rem;
+  box-shadow: 0px 10px 20px 0px #364e7e40;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Active state */
+.mobile-nav-backdrop.show .mobile-nav-modal {
+  transform: translateX(0); /* slide in */
+}
+
+.mobile-close-btn {
+  position: absolute;
+  color: #ea5555;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.875rem;
+  cursor: pointer;
+  font-weight: bold;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  transition: transform 0.2s ease-in-out, font-weight 0.2s ease-in-out;
+  transition-delay: 0.1s;
+}
+
+/* Show only on mobile */
+@media screen and (min-width: 801px) {
+  #mobile-nav-backdrop {
+    display: none !important;
+  }
+}
