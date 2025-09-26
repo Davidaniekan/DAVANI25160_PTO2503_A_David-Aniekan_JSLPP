@@ -828,3 +828,111 @@ main {
   background: #01a501; /* green */
   border: 1px solid #019901;
 }
+
+/* ========================
+   Responsive Styles
+======================== */
+/******** Tablets ********/
+@media screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar,
+  .toggle-slider,
+  .navigation-section {
+    display: none;
+  }
+
+  #eye-btn {
+    display: none !important;
+  }
+
+  header {
+    border-bottom: unset;
+    padding: 20px;
+  }
+
+  .board-list {
+    display: none;
+  }
+
+  .new-task-btn {
+    display: none;
+  }
+
+  .logo-mobile {
+    display: block;
+  }
+
+  .plus-btn {
+    display: block;
+  }
+
+  .columns {
+    width: 100%;
+    align-items: center;
+  }
+
+  main {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    gap: 16px;
+  }
+
+  .dot {
+    height: 13px;
+    width: 13px;
+  }
+
+  body.dark-theme .dark-logo-mobile {
+    display: flex;
+  }
+
+  body.dark-theme .logo-mobile {
+    display: none;
+  }
+}
+
+/******** Mobile ********/
+@media screen and (max-width: 376px) {
+  .modal input,
+  .modal textarea,
+  .modal select {
+    font-size: 13.5px;
+  }
+
+  * {
+    font-size: 15px;
+  }
+
+  main {
+    grid-template-columns: minmax(0, 380px);
+    gap: 20px;
+  }
+
+  .task-btn {
+    flex-direction: column;
+  }
+
+  .view-btn {
+    width: 100%;
+  }
+
+  body.dark-theme .dark-logo-mobile {
+    display: flex;
+  }
+
+  body.dark-theme .logo-mobile {
+    display: none;
+  }
+
+  .mobile-nav-backdrop {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-nav-modal {
+    width: 90%;
+    left: unset;
+  }
+}
