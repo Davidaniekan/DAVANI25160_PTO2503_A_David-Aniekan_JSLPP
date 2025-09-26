@@ -518,3 +518,133 @@ main {
     display: none !important;
   }
 }
+
+/* ========================
+   Modal Styles
+======================== */
+.modal-backdrop,
+.modal-new-task {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  background: white;
+  border-radius: 5px;
+  width: 28.125rem;
+  max-width: 90%;
+  padding: 1.25rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal h3 {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 100%;
+}
+
+.modal label {
+  font-weight: 700;
+  color: #828fa3;
+  display: block;
+  font-size: 12px;
+  line-height: 100%;
+  margin: 10px 0 5px;
+}
+
+.modal input,
+.modal textarea,
+.modal select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #828fa340;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4375rem;
+  margin-bottom: 10px;
+}
+
+.modal textarea {
+  resize: none;
+  overflow: auto;
+}
+
+#task-status,
+#new-task-status,
+#task-priority,
+#new-task-priority {
+  cursor: pointer;
+}
+
+#task-priority,
+#new-task-priority {
+  margin-bottom: 20px;
+}
+
+.faded {
+  color: #828fa3;
+}
+
+.close-btn {
+  position: absolute;
+  color: #ea5555;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.875rem;
+  cursor: pointer;
+  font-weight: bold;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  transition: transform 0.2s ease-in-out, font-weight 0.2s ease-in-out;
+  transition-delay: 0.1s;
+}
+
+.close-btn:hover {
+  transform: scale(1.15);
+}
+
+.task-btn {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.view-btn {
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  height: 40px;
+  text-align: center;
+  line-height: 23px;
+}
+
+#save-btn {
+  background: #635fc7;
+}
+
+#delete-btn {
+  background: #ea5555;
+}
+
+#delete-btn:hover {
+  background: #d64545;
+}
+
+#delete-btn:active {
+  background: #b93636;
+}
