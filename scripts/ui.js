@@ -14,3 +14,11 @@ export function showLoading() {
   const columnsDiv = document.querySelector(".columns");
   columnsDiv.prepend(loadingDiv);
 }
+
+/**
+ * Hide loading message if it exists.
+ */
+export function hideLoading() {
+  const loadingDiv = document.getElementById("loading-message");
+  if (loadingDiv) loadingDiv.remove();
+}
