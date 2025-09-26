@@ -55,3 +55,13 @@ export function openModal(task) {
     document.body.style.overflow = "hidden"; // Disable background scroll
   }
 }
+
+/**
+ * Find task by id and open modal.
+ * @param {number} id
+ */
+export function openModalById(id) {
+  const task = tasks.find((t) => t.id === id);
+  if (!task) return;
+  openModal(task);
+}
