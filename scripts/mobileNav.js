@@ -40,4 +40,7 @@ export function initMobileNav() {
     }, 300);
   }
 
+  if (logoLightIcon) logoLightIcon.addEventListener("click", openMobileNav);
+  if (logoDarkIcon) logoDarkIcon.addEventListener("click", openMobileNav);
+  if (mobileNavClose) mobileNavClose.addEventListener("click", closeMobileNav);
 }
