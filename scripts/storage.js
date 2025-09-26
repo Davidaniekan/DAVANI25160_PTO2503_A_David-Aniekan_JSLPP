@@ -45,3 +45,52 @@ export function saveTasks(updatedTasks) {
     console.error("Error saving tasks to localStorage:", error);
   }
 }
+
+/**
+ * Loads tasks from localStorage. Falls back to empty array if not found.
+ * Updates `nextTaskId` counter if stored in localStorage.
+ * @returns {Task[]} Array of loaded tasks.
+ */
+export function loadTasks() {
+  try {
+    const saved = localStorage.getItem("tasks");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+
+      // ensure priority exists for older schema tasks
+      const normalized = (Array.isArray(parsed) ? parsed : []).map((t) => ({
+        ...t,
+        priority: normalizePriority(t.priority),
+      }));
+
+      // replace contents of exported tasks array
+      tasks.splice(0, tasks.length, ...normalized);
+
+      const savedNextId = localStorage.getItem("nextTaskId");
+      if (savedNextId) {
+        nextTaskId = parseInt(savedNextId, 10);
+      } else {
+        // compute nextTaskId from tasks
+        nextTaskId =
+          tasks.length > 0
+            ? tasks.reduce((m, x) => Math.max(m, x.id), 0) + 1
+            : 1;
+      }
+    } else {
+      // initialize empty state
+      tasks.splice(0, tasks.length); // clear
+      nextTaskId = 1;
+
+      // Save them immediately so they persist after refresh
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      localStorage.setItem("nextTaskId", String(nextTaskId));
+    }
+  } catch (error) {
+    console.error("Error loading tasks from localStorage:", error);
+
+    // Fall back to empty tasks if something goes wrong
+    tasks.splice(0, tasks.length);
+    nextTaskId = 1;
+  }
+  return tasks;
+}
