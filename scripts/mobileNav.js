@@ -27,4 +27,17 @@ export function initMobileNav() {
     }
   }
 
+  function closeMobileNav() {
+    if (!mobileNavBackdrop) return;
+    mobileNavBackdrop.classList.remove("show");
+    document.body.style.overflow = ""; // Restore scroll
+
+    // Wait for animation to finish before hiding backdrop
+    setTimeout(() => {
+      if (!mobileNavBackdrop.classList.contains("show")) {
+        mobileNavBackdrop.style.display = "none";
+      }
+    }, 300);
+  }
+
 }
