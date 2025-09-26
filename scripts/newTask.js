@@ -55,3 +55,49 @@ export function createTaskFromModal() {
   if (modalNewTask) modalNewTask.style.display = "none";
   document.body.style.overflow = "";
 }
+
+/**
+ * Wire up new task modal buttons + form submit.
+ */
+export function initNewTaskHandlers() {
+  if (newTaskBtn) {
+    newTaskBtn.forEach((btn) =>
+      btn.addEventListener("click", () => {
+        if (modalNewTask) modalNewTask.style.display = "flex";
+        document.body.style.overflow = "hidden"; // Disable background scroll
+        if (newTaskStatusSelect) newTaskStatusSelect.value = "todo";
+        if (newTaskPrioritySelect) newTaskPrioritySelect.value = "low";
+        if (newTaskStatusSelect) updateDropdownHighlight(newTaskStatusSelect);
+        if (newTaskPrioritySelect)
+          updateDropdownHighlight(newTaskPrioritySelect);
+      })
+    );
+  }
+
+  if (newTaskForm) {
+    newTaskForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (newTaskForm.checkValidity()) {
+        createTaskFromModal();
+      } else {
+        newTaskForm.reportValidity();
+      }
+    });
+  }
+
+  if (newTaskCloseBtn) {
+    newTaskCloseBtn.addEventListener("click", () => {
+      if (modalNewTask) modalNewTask.style.display = "none";
+      document.body.style.overflow = "";
+    });
+  }
+
+  if (newTaskStatusSelect)
+    newTaskStatusSelect.addEventListener("change", () =>
+      updateDropdownHighlight(newTaskStatusSelect)
+    );
+  if (newTaskPrioritySelect)
+    newTaskPrioritySelect.addEventListener("change", () =>
+      updateDropdownHighlight(newTaskPrioritySelect)
+    );
+}
