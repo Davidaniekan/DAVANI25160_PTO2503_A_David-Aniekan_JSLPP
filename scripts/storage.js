@@ -26,3 +26,22 @@ export function normalizePriority(value) {
   const v = String(value).toLowerCase();
   return v === "high" || v === "medium" || v === "low" ? v : "low";
 }
+
+/**
+ * Saves tasks array to localStorage and updates task counter.
+ * @param {Task[]} updatedTasks - Array of tasks to save.
+ */
+export function saveTasks(updatedTasks) {
+  try {
+    // ensure it's an array
+    const arr = Array.isArray(updatedTasks) ? updatedTasks : [];
+
+    // mutate exported tasks array in-place
+    tasks.splice(0, tasks.length, ...arr);
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("nextTaskId", String(nextTaskId));
+  } catch (error) {
+    console.error("Error saving tasks to localStorage:", error);
+  }
+}
