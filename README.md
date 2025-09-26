@@ -9,6 +9,13 @@ This repo demonstrates:
 - Persistent state with `localStorage`
 - JSDoc-documented functions for maintainability
 - Accessible, responsive UI with simple interactions
+---
+## 🌐 Live Demo
+
+- **Check out the project here:** [Kanban Task Management Website](https://kanbanboardcareer.netlify.app/)
+---
+## 🎥 Presentation Video
+- **Watch the presentation:** [Click here to watch](https://app.screencastify.com/watch/k4BkxYZrEv1f7JuGDW4i)
 
 ---
 
