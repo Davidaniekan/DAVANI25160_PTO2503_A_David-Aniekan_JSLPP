@@ -71,3 +71,23 @@ export function renderTasks(tasksList = null) {
   updateColumnCounts(list);
 }
 
+/**
+ * Update column headers with task counts.
+ * @param {import("./storage").Task[]} tasksList - Array of tasks to count.
+ */
+export function updateColumnCounts(tasksList) {
+  const todoCount = tasksList.filter((t) => t.status === "todo").length;
+  const doingCount = tasksList.filter((t) => t.status === "doing").length;
+  const doneCount = tasksList.filter((t) => t.status === "done").length;
+
+  const todoH4 = document.querySelector("#todo h4");
+  const doingH4 = document.querySelector("#doing h4");
+  const doneH4 = document.querySelector("#done h4");
+
+  if (todoH4)
+    todoH4.innerHTML = `<span class="dot indigo"></span> TODO (${todoCount})`;
+  if (doingH4)
+    doingH4.innerHTML = `<span class="dot purple"></span> DOING (${doingCount})`;
+  if (doneH4)
+    doneH4.innerHTML = `<span class="dot green"></span> DONE (${doneCount})`;
+}
