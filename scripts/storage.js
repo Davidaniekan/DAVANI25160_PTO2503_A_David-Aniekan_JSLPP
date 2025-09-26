@@ -107,3 +107,33 @@ export function setNextTaskId(n) {
     console.error("Error persisting nextTaskId:", err);
   }
 }
+
+/**
+ * Replace the internal tasks array contents (mutating the exported array),
+ * and persist to localStorage.
+ * @param {Task[]} newTasks
+ */
+export function replaceTasks(newTasks) {
+  const arr = Array.isArray(newTasks) ? newTasks : [];
+  tasks.splice(0, tasks.length, ...arr);
+  try {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  } catch (err) {
+    console.error("Error persisting tasks in replaceTasks:", err);
+  }
+}
+
+/**
+ * Allocate and return the next task id, incrementing internal counter and persisting.
+ * @returns {number} assigned id (pre-increment value)
+ */
+export function allocateNextTaskId() {
+  const id = nextTaskId;
+  nextTaskId += 1;
+  try {
+    localStorage.setItem("nextTaskId", String(nextTaskId));
+  } catch (err) {
+    console.error("Error persisting nextTaskId in allocateNextTaskId:", err);
+  }
+  return id;
+}
