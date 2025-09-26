@@ -28,4 +28,16 @@ export function initThemeToggle() {
     }
   });
 
+  // Mobile toggle handler
+  themeSwitchMobile.addEventListener("change", () => {
+    if (themeSwitchMobile.checked) {
+      document.body.classList.add("dark-theme");
+      themeSwitch.checked = true;
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.body.classList.remove("dark-theme");
+      themeSwitch.checked = false;
+      localStorage.setItem("theme", "light");
+    }
+  });
 }
