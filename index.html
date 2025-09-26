@@ -212,8 +212,66 @@
               </div>
             </form>
           </div>
+
+          <!-- Modal for creating new tasks -->
+          <div class="modal-new-task" id="modal-new-task">
+            <form class="modal" id="new-task-form">
+              <!-- Close button -->
+              <button type="button" class="close-btn" id="new-task-close-modal">
+                &times;
+              </button>
+              <h3>Add New Task</h3>
+
+              <!-- Task title input -->
+              <label for="new-task-title">Title</label>
+              <input
+                type="text"
+                id="new-task-title"
+                name="title"
+                placeholder="e.g Take chilled break"
+                required
+              />
+
+              <!-- Task description textarea -->
+              <label for="new-task-description">Description</label>
+              <textarea
+                id="new-task-description"
+                name="description"
+                rows="4"
+                placeholder="e.g Pet your dog, have a cup of coffee, dance to your favourite song and come back to crush this challenge."
+                required
+              ></textarea>
+
+              <!-- Task status dropdown -->
+              <label for="new-task-status">Status</label>
+              <select id="new-task-status" name="status" required>
+                <option value="todo">todo</option>
+                <option value="doing">doing</option>
+                <option value="done">done</option>
+              </select>
+
+              <!-- Task priority dropdown -->
+              <label for="new-task-priority">Priority</label>
+              <select id="new-task-priority" name="priority" required>
+                <option value="low">low</option>
+                <option value="medium">medium</option>
+                <option value="high">high</option>
+              </select>
+
+              <button
+                type="submit"
+                id="create-task-btn"
+                class="create-task-btn"
+              >
+                Create Task
+              </button>
+            </form>
+          </div>
         </div>
 
+        <button type="button" class="eye-btn" id="eye-btn">
+          <span class="eye-icon">👀</span>
+        </button>
       </div>
     </div>
   </body>
