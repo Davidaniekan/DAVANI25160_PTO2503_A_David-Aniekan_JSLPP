@@ -119,6 +119,89 @@
               <div class="tasks-container"></div>
             </div>
           </main>
+
+          <!-- Mobile Navigation Modal -->
+          <div class="mobile-nav-backdrop" id="mobile-nav-backdrop">
+            <div class="mobile-nav-modal" id="mobile-nav">
+              <!-- Sidebar contents reused -->
+              <nav class="mobile-board">
+                <h4>ALL BOARDS (1)</h4>
+
+                <button
+                  type="button"
+                  class="mobile-close-btn"
+                  id="mobile-nav-close"
+                >
+                  &times;
+                </button>
+
+                <button class="board-btn" id="mobile-board-btn">
+                  Launch Career
+                </button>
+
+                <div class="toggle-slide">
+                  <div class="toggle-container">
+                    <span class="icon">☀️</span>
+                    <div class="theme-toggle">
+                      <input type="checkbox" id="theme-switch-mobile" />
+                      <label for="theme-switch-mobile" class="switch"></label>
+                    </div>
+                    <span class="icon">🌑</span>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Modal for viewing/editing tasks -->
+          <div class="modal-backdrop" id="modal-backdrop">
+            <form class="modal" id="edit-task-form">
+              <!-- Close button -->
+              <button type="button" class="close-btn" id="close-modal">
+                &times;
+              </button>
+              <h3>Task</h3>
+
+              <!-- Task title input -->
+              <label for="task-title">Title</label>
+              <input type="text" id="task-title" name="title" required />
+
+              <!-- Task description textarea -->
+              <label for="task-description">Description</label>
+              <textarea
+                id="task-description"
+                name="description"
+                rows="4"
+                required
+              ></textarea>
+
+              <!-- Task status dropdown -->
+              <label for="task-status">Status</label>
+              <select id="task-status" name="status" required>
+                <option value="todo">todo</option>
+                <option value="doing">doing</option>
+                <option value="done">done</option>
+              </select>
+
+              <!-- Task priority dropdown -->
+              <label for="task-priority">Priority</label>
+              <select id="task-priority" name="priority" required>
+                <option value="low">low</option>
+                <option value="medium">medium</option>
+                <option value="high">high</option>
+              </select>
+
+              <div class="task-btn">
+                <button type="submit" class="view-btn" id="save-btn">
+                  Save Changes
+                </button>
+                <button type="button" class="view-btn" id="delete-btn">
+                  Delete Task
+                </button>
+              </div>
+
+            </form>
+          </div>
         </div>
       </div>
     </div>
