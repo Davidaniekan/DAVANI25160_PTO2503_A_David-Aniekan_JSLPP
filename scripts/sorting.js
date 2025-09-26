@@ -31,3 +31,11 @@ export function sortTasksArray(arr) {
     return a.id - b.id;
   });
 }
+
+/**
+ * Persist tasks in sorted order.
+ */
+export function sortAndPersist() {
+  const sorted = sortTasksArray(tasks);
+  saveTasks(sorted);
+}
