@@ -94,3 +94,16 @@ export function loadTasks() {
   }
   return tasks;
 }
+
+/**
+ * Set the nextTaskId value from other modules.
+ * @param {number} n
+ */
+export function setNextTaskId(n) {
+  nextTaskId = Number(n) || 1;
+  try {
+    localStorage.setItem("nextTaskId", String(nextTaskId));
+  } catch (err) {
+    console.error("Error persisting nextTaskId:", err);
+  }
+}
