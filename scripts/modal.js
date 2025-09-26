@@ -65,3 +65,14 @@ export function openModalById(id) {
   if (!task) return;
   openModal(task);
 }
+
+/**
+ * Close the modal and reset currentTaskId
+ */
+export function closeModal() {
+  [modalBackdrop, modalNewTask].forEach((el) => {
+    if (el) el.style.display = "none";
+  });
+  document.body.style.overflow = ""; // Restore scroll
+  currentTaskId = null;
+}
