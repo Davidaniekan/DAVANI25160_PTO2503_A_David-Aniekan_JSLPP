@@ -15,4 +15,17 @@ export function initThemeToggle() {
     themeSwitchMobile.checked = true;
   }
 
+  // Desktop toggle handler
+  themeSwitch.addEventListener("change", () => {
+    if (themeSwitch.checked) {
+      document.body.classList.add("dark-theme");
+      themeSwitchMobile.checked = true;
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.body.classList.remove("dark-theme");
+      themeSwitchMobile.checked = false;
+      localStorage.setItem("theme", "light");
+    }
+  });
+
 }
