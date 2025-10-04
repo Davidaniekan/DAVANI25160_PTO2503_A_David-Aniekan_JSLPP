@@ -15,7 +15,7 @@ This repo demonstrates:
 - **Check out the project here:** [Kanban Task Management Website](https://kanbanboardcareer.netlify.app/)
 ---
 ## 🎥 Presentation Video
-- **Watch the presentation:** [Click here to watch](https://app.screencastify.com/watch/k4BkxYZrEv1f7JuGDW4i)
+- **Watch the presentation:** [Click here to watch](https://drive.google.com/file/d/1_iyZlyZojayG_z4R8CK9WmpaLmhm4dcc/view?usp=sharing)
 
 ---
 
